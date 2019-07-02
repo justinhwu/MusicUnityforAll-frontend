@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 2019_06_26_151649) do
 
   create_table "playlists", force: :cascade do |t|
     t.string "name"
-    t.string "description"
-    t.string "image"
-    t.string "genre"
+    t.string "description", default: ""
+    t.string "image", default: "https://images.shazam.com/artistart/a41223759_s800b1b5.jpg"
+    t.string "genre", default: "null"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
