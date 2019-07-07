@@ -33,12 +33,11 @@ ActiveRecord::Schema.define(version: 2019_06_26_151649) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "name"
-    t.string "artist"
-    t.string "genre"
-    t.integer "playtime"
-    t.string "song_link"
-    t.date "release_date"
+    t.string "videoId"
+    t.string "title"
+    t.string "publishedAt"
+    t.string "channelTitle"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
