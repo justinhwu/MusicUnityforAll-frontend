@@ -9,4 +9,9 @@ class PlaylistsController < ApplicationController
     render json: @playlist
   end
 
+  private
+  def playlist_params
+    params.require(:playlist).permit!
+  end
+
 end
