@@ -6,6 +6,7 @@ class CreateSongs < ActiveRecord::Migration[6.0]
       t.string :publishedAt
       t.string :channelTitle
       t.string :description
+      t.string :url
 
       t.timestamps
     end

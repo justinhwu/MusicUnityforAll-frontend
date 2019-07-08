@@ -14,11 +14,13 @@ class SongsController < ApplicationController
     params[:playlist_ids].each do |playlist_id|
       PlaylistSong.find_or_create_by(playlist_id: playlist_id , song_id: @song.id)
     end
-    render json: @song
+    @lists = User.find(params[:user_id]).playlists
+    render json: @lists
   end
+
 
   private
   def song_params
-    params.require(:song).permit(:playlist_ids, :videoId, :title, :publishedAt, :channelTitle, :description)
+    params.require(:song).permit(:playlist_ids, :videoId, :title, :publishedAt, :channelTitle, :description, :url)
   end
 end
