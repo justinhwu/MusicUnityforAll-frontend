@@ -9,6 +9,13 @@ class PlaylistsController < ApplicationController
     render json: @playlist
   end
 
+  def update
+    @playlist = Playlist.find(params[:id])
+    @playlist.update(playlist_params)
+    @playlists = User.find(@playlist.user_id).playlists
+    render json: @playlists
+  end
+
   def destroy
     @playlist = Playlist.find(params[:id])
     @playlist.destroy
