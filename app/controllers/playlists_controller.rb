@@ -9,6 +9,13 @@ class PlaylistsController < ApplicationController
     render json: @playlist
   end
 
+  def destroy
+    @playlist = Playlist.find(params[:id])
+    @playlist.destroy
+    @user = User.find(params[:user_id]).playlists
+    render json: @user
+  end
+
   private
   def playlist_params
     params.require(:playlist).permit!
