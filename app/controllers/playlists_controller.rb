@@ -23,6 +23,14 @@ class PlaylistsController < ApplicationController
     render json: @user
   end
 
+  def getSongs
+    @user = User.find(params[:id])
+    mixclouds = @user.playlists.map{|playlist| playlist.mixclouds}.flatten.uniq
+    songs = @user.playlists.map{|playlist| playlist.songs}.flatten.uniq
+    hash = {mixclouds: mixclouds, songs: songs}
+    render json: hash
+  end
+
   private
   def playlist_params
     params.require(:playlist).permit!

@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   post '/addmixcloud', to: 'mixclouds#addmixcloud'
   delete '/removesong', to: 'playlist_songs#removesong'
   delete '/removemix', to: 'playlist_mixclouds#removemix'
-
+  get '/getSongs/:id', to: 'playlists#getSongs'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
