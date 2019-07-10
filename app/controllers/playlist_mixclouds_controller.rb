@@ -1,0 +1,2 @@
+class PlaylistMixcloudsController < ApplicationController
+end
