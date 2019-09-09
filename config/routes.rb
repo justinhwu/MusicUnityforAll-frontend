@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-  post '/login', to: 'users#login'
+  # post '/login', to: 'users#login'
   post '/addsong', to: 'songs#addsong'
   post '/addmixcloud', to: 'mixclouds#addmixcloud'
   delete '/removesong', to: 'playlist_songs#removesong'
