@@ -1,3 +1,4 @@
+require 'byebug'
 class Api::V1::AuthController < ApplicationController
    def create
      @user = User.find_by(username: params[:username])
@@ -6,6 +7,7 @@ class Api::V1::AuthController < ApplicationController
        token = encode(payload)
        render json: {
          user: @user,
+         playlists: @user.playlists,
          token: token,
          authenticated: true
        }, status: :ok

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :playlists
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:create]
+      resources :users 
       post '/login', to: 'auth#create'
     end
   end
