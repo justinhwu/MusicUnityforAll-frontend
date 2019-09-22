@@ -1,18 +1,9 @@
 class Api::V1::UsersController < ApplicationController
-  def index
-    render json: User.all, include: '**'
+  def show
+    render json: User.find(params[:id])
   end
 
-  def login
-    @user = User.find_by(username: params[:username], password: params[:password])
-    if @user
-      render json: @user
-    else
-      render json: {error: "Your Username or Password is Incorrect."}
-    end
-  end
-
-  def profile
+  def home
     token = request.headers["Authentication"].split(" ")[1]
     payload = decode(token)
     @user = User.find(payload["user_id"])
