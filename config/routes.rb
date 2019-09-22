@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :playlists
   namespace :api do
     namespace :v1 do
-      resources :users 
+      resources :users
       post '/login', to: 'auth#create'
+      post '/home', to: 'users#home'
     end
   end
 
